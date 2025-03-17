@@ -3,44 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sample HTML Page</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            background-color: #f0f0f0;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        h1 {
-            color: #333;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 10px;
-        }
-        p {
-            line-height: 1.6;
-            color: #666;
-        }
-    </style>
+    <title>Floating Panel</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h1>Welcome to Sample HTML Page</h1>
-        <p>This is a sample HTML page created to demonstrate basic HTML structure and styling.</p>
-        <p>Here are some key features of this page:</p>
-        <ul>
-            <li>Responsive design</li>
-            <li>Clean typography</li>
-            <li>Basic styling with CSS</li>
-            <li>Semantic HTML elements</li>
-        </ul>
-        <p>Feel free to modify and enhance this template according to your needs.</p>
+        <div class="panel" onclick="openFile('foo.md')">
+            <h2>Hover over me</h2>
+            <p>This is a floating panel that moves up on hover</p>
+        </div>
     </div>
+    <script>
+        function openFile(filePath) {
+            window.open(filePath, '_blank');
+        }
+    </script>
 </body>
 </html>
