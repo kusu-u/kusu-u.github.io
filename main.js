@@ -1,8 +1,7 @@
 import { cardsData } from "./cardsData.js";
 
 document.addEventListener("DOMContentLoaded", function() {
-    const isGitHubPages = window.location.pathname.includes("github.io");
-    console.log(window.location.pathname);
+    const isGitHubPages = window.location.href.includes("github.io");
     const content = document.getElementById("js-content");
     const template = document.getElementById("js-card");
 
