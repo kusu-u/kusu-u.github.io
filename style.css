@@ -1,19 +1,25 @@
-.container {
-    position: relative;
-    width: 300px;
-    margin: 50px auto;
+.card {
+    width: 300px;           /* 固定幅 */
+    min-height: 400px;      /* 最低高さを設定 */
+    border: 1px solid #ddd; /* カードの枠線 */
+    border-radius: 8px;     /* 角を丸く */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* 軽い影を追加 */
+    overflow: hidden;       /* 画像がはみ出さないように */
 }
 
-.panel {
-    position: relative;
+.card-image {
     width: 100%;
-    padding: 20px;
-    background-color: #f0f0f0;
-    border-radius: 8px;
-    transition: transform 0.3s ease;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    height: auto;  /* 高さを自動調整 */
+    object-fit: cover; /* 画像をカードのサイズに合わせてカバー */
 }
 
-.panel:hover {
-    transform: translateY(-20px);
+.card-content {
+    padding: 10px;
+    text-align: center;
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px 0;
 }

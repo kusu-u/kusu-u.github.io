@@ -7,16 +7,21 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <div class="panel" onclick="openFile('docs/foo')">
-            <h2>Hover over me</h2>
-            <p>This is a floating panel that moves up on hover</p>
-        </div>
-    </div>
+    <section id="js-content" class="c-gallery">
+        <template id="js-card">
+            <div class="card">
+                <img class="card-image" src="" alt="" />
+                <div class="card-content">
+                    <p class="card-title"></p>
+                </div>
+            </div>
+        </template>
+    </section>
     <script>
         function openFile(filePath) {
             window.open(filePath, '_blank');
         }
     </script>
+    <script src="card.js"></script>
 </body>
 </html>
