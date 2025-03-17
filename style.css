@@ -1,24 +1,36 @@
-.card {
-    width: 300px;           /* 固定幅 */
-    min-height: 400px;      /* 最低高さを設定 */
-    border: 1px solid #ddd; /* カードの枠線 */
-    border-radius: 8px;     /* 角を丸く */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* 軽い影を追加 */
-    overflow: hidden;       /* 画像がはみ出さないように */
+.works {
+    justify-content: center;
+    max-width: 1100px;
+    padding: 0 1.25rem;
+    margin: 0 auto;
 }
 
-.card-image {
+.works-card-grid {
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.works-card {
+    min-width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.works-card-image {
     width: 100%;
     height: auto;  /* 高さを自動調整 */
     object-fit: cover; /* 画像をカードのサイズに合わせてカバー */
 }
 
-.card-content {
+.works-card-content {
     padding: 10px;
     text-align: center;
 }
 
-.card-title {
+.works-card-title {
     font-size: 18px;
     font-weight: bold;
     margin: 10px 0;
