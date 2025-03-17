@@ -1,14 +1,13 @@
 import { cardsData } from "./cardsData.js";
 
 document.addEventListener("DOMContentLoaded", function() {
-    console.log(window.location.href);
     const isGitHubPages = window.location.href.includes("github.io");
     const content = document.getElementById("js-content");
     const template = document.getElementById("js-card");
 
     // カードを生成して挿入
     cardsData.forEach(data => {
-        const clone = template.content.cloneNode(true); // テンプレートのクローン
+        const clone = template.content.cloneNode(true);
         const card = clone.querySelector(".card");
 
         // データをカードに設定
@@ -17,8 +16,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // GitHubPagesではjekyllで拡張子無しでmdを開くため削除する
         let filePath = data.filePath;
-        if(false == isGitHubPages) {
-            filePath.split(".").slice(0, -1).join(".") + "/";
+        if(isGitHubPages) {
+            filePath = filePath.split(".").slice(0, -1).join(".") + "/";
         }
 
         // クリックイベントの追加
