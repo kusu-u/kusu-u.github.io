@@ -1,26 +1,9 @@
+import { cardsData } from "./cardsData.js";
+
 document.addEventListener("DOMContentLoaded", function() {
+    const isGitHubPages = window.location.pathname.includes("github.io");
     const content = document.getElementById("js-content");
     const template = document.getElementById("js-card");
-
-    // 動的に挿入するデータ
-    const cardsData = [
-        {
-            imgSrc: "images/image.png",
-            title: "カードタイトル",
-            filePath: "docs/foo"
-        },
-        {
-            imgSrc: "images/image.png",
-            title: "カードタイトル",
-            filePath: "docs/foo"
-        },
-        {
-            imgSrc: "images/image.png",
-            title: "カードタイトル",
-            filePath: "docs/foo"
-        },
-        // 他のカードデータも追加可能
-    ];
 
     // カードを生成して挿入
     cardsData.forEach(data => {
@@ -31,9 +14,15 @@ document.addEventListener("DOMContentLoaded", function() {
         card.querySelector(".card-image").src = data.imgSrc;
         card.querySelector(".card-title").innerText = data.title;
 
+        // GitHubPagesではjekyllで拡張子無しでmdを開くため削除する
+        let filePath = data.filePath;
+        if(false == isGitHubPages) {
+            filePath.split(".").slice(0, -1).join(".");
+        }
+
         // クリックイベントの追加
         card.onclick = function() {
-            openFile(data.filePath);
+            window.open(filePath, '_blank');
         };
 
         // カードをコンテンツに追加
