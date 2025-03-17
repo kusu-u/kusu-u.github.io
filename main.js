@@ -1,6 +1,7 @@
 import { cardsData } from "./cardsData.js";
 
 document.addEventListener("DOMContentLoaded", function() {
+    console.log(window.location.href);
     const isGitHubPages = window.location.href.includes("github.io");
     const content = document.getElementById("js-content");
     const template = document.getElementById("js-card");
@@ -17,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function() {
         // GitHubPagesではjekyllで拡張子無しでmdを開くため削除する
         let filePath = data.filePath;
         if(false == isGitHubPages) {
-            filePath.split(".").slice(0, -1).join(".");
+            filePath.split(".").slice(0, -1).join(".") + "/";
         }
 
         // クリックイベントの追加
