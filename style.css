@@ -1,37 +1,85 @@
+* { margin: 0px; padding: 0px; }
+
 .works {
-    justify-content: center;
-    max-width: 1100px;
+    max-width: 1000px;
     padding: 0 1.25rem;
     margin: 0 auto;
 }
 
-.works-card-grid {
+.works-grid {
+    --item-width: 250px;
+
     display: grid;
-    justify-items: center;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(var(--item-width), 1fr));
     gap: 20px;
 }
 
 .works-card {
-    min-width: 300px;
-    border: 1px solid #ddd;
+    min-width: var(--item-width);
+    word-wrap: break-word;
+    box-sizing: border-box;
     border-radius: 8px;
+    color: #333;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease-in-out;
+    font-size: 0;
+}
+
+.works-card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    cursor:pointer
+}
+
+.works-card:hover .image{
+    filter:blur(4px);
+}
+
+.works-card .image {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    transition: filter 0.3s ease-in-out;
     overflow: hidden;
 }
 
-.works-card-image {
-    width: 100%;
-    height: auto;  /* 高さを自動調整 */
-    object-fit: cover; /* 画像をカードのサイズに合わせてカバー */
+.works-card .content-box {
+    --visible-height: 55px;
+    --hidden-height: 80px;
+
+    overflow: hidden;
+    height: 100%;
+    background-color: rgb(252, 110, 129);
+    transition: transform 0.2s ease-out;
 }
 
-.works-card-content {
-    padding: 10px;
-    text-align: center;
+.works-card .content {
+    height: var(--visible-height);
+    margin: 10px;
+    text-align: left;
 }
 
-.works-card-title {
-    font-size: 18px;
-    font-weight: bold;
-    margin: 10px 0;
+.works-card .content > p {
+    margin-bottom: 0;
+}
+
+.works-card:hover .content-box{
+    transform: translateY(calc(var(--hidden-height) * -1));
+}
+
+.works-card .title {
+    font-size: 1.5rem;
+    font-weight: 100;
+}
+
+.works-card .description {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.works-card .url {
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
 }

@@ -2,7 +2,7 @@ import { cardsData } from "./cardsData.js";
 
 document.addEventListener("DOMContentLoaded", function() {
     const isGitHubPages = window.location.href.includes("github.io");
-    const content = document.getElementById("js-content");
+    const content = document.getElementById("js-works-grid");
     const template = document.getElementById("js-works-card");
 
     // カードを生成して挿入
@@ -11,8 +11,9 @@ document.addEventListener("DOMContentLoaded", function() {
         const card = clone.querySelector(".works-card");
 
         // データをカードに設定
-        card.querySelector(".works-card-image").src = data.imgSrc;
-        card.querySelector(".works-card-title").innerText = data.title;
+        card.querySelector(".works-card div .image").src = data.imgSrc;
+        card.querySelector(".works-card div .title").textContent = data.title;
+        card.querySelector(".works-card div .description").textContent = data.description;
 
         // GitHubPagesではjekyllで拡張子無しでmdを開くため削除する
         let filePath = data.filePath;
@@ -22,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // クリックイベントの追加
         card.onclick = function() {
-            window.open(filePath);
+            window.open(filePath, "_self");
         };
 
         // カードをコンテンツに追加
